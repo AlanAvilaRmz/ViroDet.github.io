@@ -1,12 +1,9 @@
 (function ($)
   { "use strict"
-  
+
 /* 1. Proloder */
     $(window).on('load', function () {
       $('#preloader-active').delay(450).fadeOut('slow');
-      $('body').delay(450).css({
-        'overflow': 'visible'
-      });
     });
 
 /* 2. sticky And Scroll UP */
@@ -27,7 +24,7 @@
       }, 800);
       return false;
     });
-  
+
 
 /* 3. slick Nav */
 // mobile_menu
@@ -57,7 +54,7 @@
         autoplaySpeed: 4000,
         dots: false,
         fade: true,
-        arrows: true, 
+        arrows: true,
         prevArrow: '<button type="button" class="slick-prev"><i class="ti-angle-left"></i></button>',
         nextArrow: '<button type="button" class="slick-next"><i class="ti-angle-right"></i></button>',
         responsive: [{
@@ -168,8 +165,8 @@
     new WOW().init();
 
 
-    
-// 11. ---- Mailchimp js --------//  
+
+// 11. ---- Mailchimp js --------//
     function mailChimp() {
       $('#mc_embed_signup').find('form').ajaxChimp();
     }
