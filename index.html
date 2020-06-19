@@ -26,10 +26,9 @@
   @media screen and (min-width: 561px) {
     @media screen and (min-aspect-ratio: 400/225) {
       #titlevid {
-        top: calc(50vh - 28.125vw);
-        left: 0;
-        clip-path: inset(calc(50vh + 28.125vw) 0);
+        max-height: 100vh;
         width: 100vw;
+        object-fit: cover;
       }
       .alltopstuff {
         height: 100vh;
@@ -37,8 +36,6 @@
     }
     @media screen and (max-aspect-ratio: 400/225) {
       #titlevid {
-        top: 0;
-        left: 0;
         width: 100vw;
       }
       .alltopstuff {
@@ -50,7 +47,6 @@
   @media screen and (max-width: 560px){
     #titlevid {
       width: 560px;
-      top: 0;
       left: calc(50vw - 280px);
     }
     .alltopstuff {
@@ -79,12 +75,14 @@
     height: auto;
     position: absolute;
     z-index: 0;
+    top: 0;
+    left: 0;
     display: block;
   }
   .footer-area {
     width: 100vw;
   }
-  .col-md-4 object {
+  .col-md-4 object, .col-md-4 svg {
     width: 100%;
   }
   </style>
@@ -307,10 +305,10 @@
               </object>
             </div>
             <div class="col-md-4">
-
             </div>
             <div class="col-md-4">
-
+              <h4>PCR & Results</h4>
+              <svg id="pcranim"></svg>
             </div>
           </div>
         </div>
@@ -729,45 +727,96 @@
   <script src="./assets/js/plugins.js"></script>
   <script src="./assets/js/main.js"></script>
 
+  <!-- Snap.svg -->
+  <script src="./assets/js/snap.svg-min.js" charset="utf-8"></script>
+
+
   <script type="text/javascript">
   $(window).on("pageshow", function() {
     $("#titlevid")[0].play()
   })
   {
     let phillip = document.getElementById('phillip')
-    let d, qtip, sample
-    let mousegone = true
-    let hasSample = false
-    let setVars = function() {
-      d = document.getElementById("phillip").contentDocument
-      qtip = d.getElementById("qtip")
-      sample = d.getElementById("sample")
-    }
+    var philanim = {d:null,qtip:null,sample:null,mousegone:false,hasSample:false}
     let removeQtip = function() {
-      if(typeof d === 'undefined') {setVars()}
-      qtip.style.transform = 'translate(0%, 0%)'
+      philanim.qtip.style.transform = 'translate(0%, 0%)'
     }
     window.addEventListener('load', function() {
-      if(typeof d === 'undefined') {setVars()}
-      qtip.style.transform = 'translate(0%,0%)'
-      sample.style.opacity = '0.00'
+      philanim.d = document.getElementById("phillip").contentDocument
+      philanim.qtip = philanim.d.getElementById("qtip")
+      philanim.sample = philanim.d.getElementById("sample")
+      philanim.qtip.style.transform = 'translate(0%,0%)'
+      philanim.sample.style.opacity = '0.00'
       setTimeout(() => {
-        qtip.style.transition = 'transform 1s'
-        sample.style.transition = 'opacity 1s'
+        philanim.qtip.style.transition = 'transform 1s'
+        philanim.sample.style.transition = 'opacity 1s'
       }, 100)
     })
     phillip.addEventListener('mouseenter', function() {
-      if(typeof d === 'undefined') {setVars()}
-      qtip.style.transform = 'translate(30%,-7.84%)'
-      mousegone = false
-      setTimeout(() => {sample.style.opacity = '1.00'; setTimeout(() => {if(mousegone) {removeQtip()} else {hasSample = true}},1000)}, 1000)
+      philanim.qtip.style.transform = 'translate(30%,-7.84%)'
+      philanim.mousegone = false
+      setTimeout(() => {philanim.sample.style.opacity = '1.00'; setTimeout(() => {if(philanim.mousegone) {removeQtip()} else {philanim.hasSample = true}},1000)}, 1000)
     })
     phillip.addEventListener('mouseleave', function() {
-      mousegone = true
-      if(hasSample) {
-        hasSample = false
+      philanim.mousegone = true
+      if(philanim.hasSample) {
+        philanim.hasSample = false
         removeQtip()
       }
+    })
+  }
+
+  {
+    let g = Snap('#pcranim')
+    var pcranim = {lastpath: null, running: false}
+    g.attr('viewBox', [0, 0, 86.355834, 58.872364])
+    Snap.load('assets/img/animation/pcr.svg', function(f) {
+      let gr = f.select('#layer1')
+      let defs = f.select('#defs2')
+      let top = g.g()
+      let cp = f.select('#curvepos')
+      let cn = f.select('#curveneg')
+      let dp = f.select('#positive')
+      let dn = f.select('#negative')
+      cp.attr('display', 'none')
+      cn.attr('display', 'none')
+      dp.attr('display', 'none')
+      dn.attr('display', 'none')
+      top.add(defs)
+      top.add(gr)
+      $('#pcranim').on('mouseenter', function() {
+        if(pcranim.running) {
+          return
+        }
+        if(pcranim.lastpath !== null) {
+          pcranim.lastpath.remove()
+        }
+        pcranim.running = true
+        cp.attr('display', 'none')
+        cn.attr('display', 'none')
+        dp.attr('display', 'none')
+        dn.attr('display', 'none')
+        let result = (Math.random() > 0.5)
+        let c = g.path().attr({
+          fill: 'none',
+          stroke: 'blue',
+          'stroke-linecap': 'round',
+          strokeWidth: 0.565
+        }).insertAfter(cp)
+
+        let l = Snap.path.getTotalLength((result ? cp : cn).attr('d'))
+        Snap.animate(0, l, function(x) {
+          c.attr('d',(result ? cp : cn).getSubpath(0, x))
+        }, 1500, mina.ease, function() {
+          if(result) {
+            dp.attr('display', '')
+          } else {
+            dn.attr('display', '')
+          }
+          pcranim.lastpath = c
+          pcranim.running = false
+        })
+      })
     })
   }
 </script>
