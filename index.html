@@ -5,7 +5,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>ViroDet</title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="initial-scale=1">
   <link rel="manifest" href="site.webmanifest">
   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
@@ -29,6 +29,7 @@
         max-height: 100vh;
         width: 100vw;
         object-fit: cover;
+        height: auto;
       }
       .alltopstuff {
         height: 100vh;
@@ -37,20 +38,31 @@
     @media screen and (max-aspect-ratio: 400/225) {
       #titlevid {
         width: 100vw;
+        height: auto;
       }
       .alltopstuff {
         height: 56.25vw;
       }
     }
   }
+  @media screen and (max-width: 767px) {
+    .alltopstuff .hero__caption {
+      padding-top: 20px;
+      background: linear-gradient(to bottom, #0005, #000a);
+    }
+  }
 
   @media screen and (max-width: 560px){
     #titlevid {
-      width: 560px;
-      left: calc(50vw - 280px);
+      height: 315px;
+      width: 100vw;
+      object-fit: cover;
     }
     .alltopstuff {
       height: 315px;
+    }
+    .slider-area {
+      padding-top: 0;
     }
   }
   .slick-list.draggable {
@@ -71,8 +83,10 @@
     overflow-x: hidden;
     overflow-y: visible;
   }
+  html {
+    overflow-x: hidden;
+  }
   #titlevid {
-    height: auto;
     position: absolute;
     z-index: 0;
     top: 0;
@@ -82,8 +96,9 @@
   .footer-area {
     width: 100vw;
   }
-  .col-md-4 object, .col-md-4 svg {
+  .col-md-4 svg {
     width: 100%;
+    max-height: 50vh;
   }
   </style>
 </head>
@@ -299,7 +314,7 @@
           </div>
         </div>
         <div class="section-top-border">
-          <h3 class="mb-30">How RT-qPCR Testing works</h3>
+          <h3 class="mb-30">How RT-qPCR testing works</h3>
           <div class="row">
             <div class="col-md-4">
               <h4>Sample Collection</h4>
@@ -711,8 +726,18 @@
 
 
   <script type="text/javascript">
-  $(window).on("pageshow", function() {
+  $(window).on("pageshow resize scroll", function() {
+    if($(window).scrollTop() < $('#titlevid').height()) {
+      $("#titlevid")[0].play()
+    } else {
+      $("#titlevid")[0].pause()
+    }
+  })
+  $(window).on('focus', function() {
     $("#titlevid")[0].play()
+  })
+  $(window).on('blur', function() {
+    $("#titlevid")[0].pause()
   })
   {
     let g = Snap('#phillipanim')
