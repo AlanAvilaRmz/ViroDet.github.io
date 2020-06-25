@@ -186,7 +186,7 @@
         <h2 class="text-heading">Introduction</h2>
         <p>
           The world is facing one of the most critical challenges from all the history, and everyone needs to take
-          part in taking action for solving all the problems derived from SARS-CoV2. Without a vaccine or appropriate medical
+          part in taking action for solving all the problems derived from SARS-CoV-2. Without a vaccine or appropriate medical
           treatment in sight, countries in regions such as Latin America are positioning themselves to be the worst hit during
           the ongoing COVID-19 Pandemic.
         </p>
@@ -303,10 +303,12 @@
           <div class="row">
             <div class="col-md-4">
               <h4>Sample Collection</h4>
-              <object type="image/svg+xml" id="phillip" data="assets/img/animation/phillip.svg">
-              </object>
+              <svg id="phillipanim">
+              </svg>
             </div>
             <div class="col-md-4">
+              <h4>Sample Preparation</h4>
+              <svg id="preparationanim"></svg>
             </div>
             <div class="col-md-4">
               <h4>PCR & Results</h4>
@@ -328,7 +330,7 @@
               <div class="single-defination">
                 <h4 class="mb-20">Step 02</h4>
                 <p>
-                  Samples are added to our reaction kits which contain all the necessary enzymes and probes for detecting SARS-Cov-2.
+                  Samples are added to our reaction kits which contain all the necessary enzymes and probes for detecting SARS-CoV-2.
                   Reaction mixes are added to the device. Our device is capable of running 16 samples in parallel.
                 </p>
               </div>
@@ -713,33 +715,99 @@
     $("#titlevid")[0].play()
   })
   {
-    let phillip = document.getElementById('phillip')
-    var philanim = {d:null,qtip:null,sample:null,mousegone:false,hasSample:false}
-    let removeQtip = function() {
-      philanim.qtip.style.transform = 'translate(0%, 0%)'
-    }
-    window.addEventListener('load', function() {
-      philanim.d = document.getElementById("phillip").contentDocument
-      philanim.qtip = philanim.d.getElementById("qtip")
-      philanim.sample = philanim.d.getElementById("sample")
+    let g = Snap('#phillipanim')
+    var philanim = {qtip: null , sample: null, mousegone: false, hasSample: false}
+    g.attr('viewBox', [0, 0, 155.83992, 103.11257])
+    Snap.load('assets/img/animation/phillip.svg', function(f) {
+      let top = g.g()
+      let gr = f.select("#layer1")
+      top.add(gr)
+      philanim.qtip = top.select("#qtip").node
+      philanim.sample = top.select("#sample").node
       philanim.qtip.style.transform = 'translate(0%,0%)'
       philanim.sample.style.opacity = '0.00'
       setTimeout(() => {
         philanim.qtip.style.transition = 'transform 1s'
         philanim.sample.style.transition = 'opacity 1s'
       }, 100)
-    })
-    phillip.addEventListener('mouseenter', function() {
-      philanim.qtip.style.transform = 'translate(30%,-7.84%)'
-      philanim.mousegone = false
-      setTimeout(() => {philanim.sample.style.opacity = '1.00'; setTimeout(() => {if(philanim.mousegone) {removeQtip()} else {philanim.hasSample = true}},1000)}, 1000)
-    })
-    phillip.addEventListener('mouseleave', function() {
-      philanim.mousegone = true
-      if(philanim.hasSample) {
-        philanim.hasSample = false
-        removeQtip()
+
+      let removeQtip = function() {
+        philanim.qtip.style.transform = 'translate(0%, 0%)'
       }
+
+      $('#phillipanim').on('mouseenter touchstart', function() {
+        philanim.qtip.style.transform = 'translate(30%,-7.84%)'
+        philanim.mousegone = false
+        setTimeout(() => {philanim.sample.style.opacity = '1.00'; setTimeout(() => {if(philanim.mousegone) {removeQtip()} else {philanim.hasSample = true}},1000)}, 1000)
+      })
+
+      $('#phillipanim').on('mouseleave touchend', function() {
+        philanim.mousegone = true
+        if(philanim.hasSample) {
+          philanim.hasSample = false
+          removeQtip()
+        }
+      })
+    })
+  }
+
+  {
+    let g = Snap('#preparationanim')
+    var preparationanim = {doneonce: false, running: false, back: false}
+    g.attr('viewBox', [-120, 0, 328.08578, 237.62883])
+    Snap.load('assets/img/animation/preparation.svg', function(f) {
+      let gr = f.select('#layer1')
+      let top = g.g()
+      top.add(gr)
+      let mix = top.select('#mix')
+      let pipette = top.select('#pipette')
+      let rna = top.select('#rna')
+      let sample = top.select('#sample')
+      let fluid = top.select('#fluid')
+      pipette.node.style.transition = 'transform 1s'
+      fluid.node.style.transition = 'fill 1s'
+      pipette.node.style.transform = 'translate(0%,0%)'
+      let loadWater = function(t) {
+        mix.attr('clip-path', `inset(${(1-t)*100}% 0% 0% 0%)`)
+        sample.attr('opacity', 1-t)
+      }
+      let showRNA = function(t) {
+        rna.attr('opacity', t)
+      }
+      showRNA(0)
+      loadWater(0)
+      $('#preparationanim').on('mouseenter touchstart', function() {
+        if(!preparationanim.running) {
+          preparationanim.running = true
+          pipette.node.style.transform = 'translate(0%,13%)'
+          setTimeout(() => {
+            preparationanim.running = false
+            if(!preparationanim.doneonce) {
+              preparationanim.doneonce = true
+              fluid.node.style.fill = '#b6c6c6'
+              Snap.animate(0, 1, loadWater, 1000, mina.ease, () => {
+                Snap.animate(0, 1, showRNA, 1000, mina.ease)
+                if(preparationanim.back) {
+                  preparationanim.back = false
+                  pipette.node.style.transform = 'translate(0%,0%)'
+                }
+              })
+            } else {
+              if(preparationanim.back) {
+                preparationanim.back = false
+                pipette.node.style.transform = 'translate(0%,0%)'
+              }
+            }
+          }, 1000)
+        }
+      })
+      $('#preparationanim').on('mouseleave touchend', function() {
+        if(!preparationanim.running) {
+          pipette.node.style.transform = 'translate(0%,0%)'
+        } else {
+          preparationanim.back = true
+        }
+      })
     })
   }
 
@@ -761,7 +829,7 @@
       dn.attr('display', 'none')
       top.add(defs)
       top.add(gr)
-      $('#pcranim').on('mouseenter', function() {
+      $('#pcranim').on('mouseenter touchstart', function() {
         if(pcranim.running) {
           return
         }
