@@ -100,6 +100,21 @@
     width: 100%;
     max-height: 50vh;
   }
+  .topstuff h1 {
+    margin-bottom: 5px;
+  }
+  .topstuff p {
+    margin-bottom: 15px;
+  }
+  @media screen and (min-width: 697) {
+    .topstuff .hero__caption {
+      margin-top: 35px;
+    }
+  }
+  .services-cap img {
+    max-width: 100%;
+    margin-bottom: 18px;
+  }
   </style>
 </head>
 
@@ -141,9 +156,12 @@
                     <div class="main-menu f-right d-none d-lg-block">
                       <nav>
                         <ul id="navigation">
-                          <li><a href="index.html">Home</a></li>
-                          <li><a href="about.html">About</a></li>
-                          <li><a href="team.html">Team</a></li>
+                          <li lang="en"><a href="index.html">Home</a></li>
+                          <li lang="en"><a href="about.html">About</a></li>
+                          <li lang="en"><a href="team.html">Team</a></li>
+                          <li lang="es"><a href="index.html">Inicio</a></li>
+                          <li lang="es"><a href="about.html">Información</a></li>
+                          <li lang="es"><a href="team.html">Equipo</a></li>
                         <!--  <li><a href="news.html">News</a></li> -->
                         </ul>
                       </nav>
@@ -172,10 +190,12 @@
               </div>
               <div class="hero__caption" style="padding-bottom: 6vw">
                 <h1 data-animation="fadeInLeft" data-delay=".4s">ViroDet </h1>
-                <p data-animation="fadeInLeft" data-delay=".6s">Accessible and affordable diagnostic tools for Latin America</p>
+                <p data-animation="fadeInLeft" data-delay=".6s" lang="en">Accessible and affordable diagnostic tools for Latin America</p>
+                <p data-animation="fadeInLeft" data-delay=".6s" lang="es">Herramientas diagnósticas accesibles y asequibles para América Latina</p>
                 <!-- Hero Btn -->
                 <a href="#" class="hero-btn"  data-animation="fadeInLeft" data-delay=".9s" >
-                  View project
+                  <span lang="en">View project</span>
+                  <span lang="es">Ver proyecto</span>
                   <!-- Arrow SVG icon -->
                   <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                   viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -198,19 +218,30 @@
     <!-- Start Sample Area -->
     <section class="sample-text-area">
       <div class="container box_1170">
-        <h2 class="text-heading">Introduction</h2>
-        <p>
+        <h2 class="text-heading" lang="en">Introduction</h2>
+        <h2 class="text-heading" lang="es">Introducción</h2>
+        <p lang="en">
           The world is facing one of the most critical challenges from all the history, and everyone needs to take
           part in taking action for solving all the problems derived from SARS-CoV-2. Without a vaccine or appropriate medical
-          treatment in sight, countries in regions such as Latin America are positioning themselves to be the worst hit during
+          treatment in sight, countries in regions such as Latin America are positioning themselves to be the most affected during
           the ongoing COVID-19 Pandemic.
+        </p>
+        <p lang="es">
+          El mundo está enfrentando uno de los retos más críticos de su historia y
+          todos debemos tomar acción para resolver los problemas derivados
+          del SARS-CoV-2. Sin una vacuna o tratamiento médico previsto, los países
+          de América Latina serán los más afetados durante la pandemia actual de
+          COVID-19.
         </p>
         <br />
         <br />
         <ul class="unordered-list">
-          <li><b>Regional Health System:</b> Increase the diagnostic capacity of clinical units for this pandemic and those to come.</li>
-          <li><b>Citizen Response:</b>  Unreliable case numbers and even suppression of data have caught the attention of the community.</li>
-          <li><b>Vulnerable Communities:</b>  Prioritize roadmaps that include communities that do not have laboratories equipped to diagnose.</li>
+          <li lang="en"><b>Regional Health System:</b> Increase the diagnostic capacity of clinical units for this pandemic and those to come.</li>
+          <li lang="en"><b>Citizen Response:</b> Unreliable case numbers and even suppression of data have caught the attention of the community.</li>
+          <li lang="en"><b>Vulnerable Communities:</b> Prioritize roadmaps that include communities that do not have laboratories equipped to diagnose.</li>
+          <li lang="es"><b>Sistema de salud regional:</b> incrementar la capacidad de unidades de diagnóstico clínico para esta pandemia y las que siguen.</li>
+          <li lang="es"><b>Respuesta ciudadana:</b> los números inverosímiles de casos reportados han llamado la atención de la comunidad.</li>
+          <li lang="es"><b>Comunidades vulnerables:</b> dar prioridad al acceso de laboratorios y equipos de diagnóstico a comunidades que más lo necesitan.</li>
         </ul>
       </div>
     </section>
@@ -218,73 +249,6 @@
     <!-- Our Services Start -->
     <div class="col-xl-5 col-lg-7 col-md-8">
       <div class="wantToWork-caption">
-      </div>
-    </div>
-    <div class="our-services pt-50 pb-150">
-      <div class="container">
-        <h3>Organizations involved</h3>
-        <br />
-        <div class="row">
-          <div class=" col-lg-4 col-md-6 col-sm-6">
-            <div class="single-services text-center mb-30">
-              <div class="services-cap">
-                <a href="https://www.scintia.com/"><img src="assets/img/logo/Scintia.png" alt=""></a>
-                <h5></h5>
-                <p>Educational platforms through cutting-edge tech for SynBio.</p>
-              </div>
-            </div>
-          </div>
-          <div class=" col-lg-4 col-md-6 col-sm-6">
-            <div class="single-services text-center mb-30">
-              <div class="services-cap">
-                <a href="https://www.linkedin.com/company/nitrocel-technologies/"><img src="assets/img/logo/Nitrocel.png" alt=""></a>
-                <h5>  </h5>
-                <p>Science-based startup developing technologies for cell therapy manufacturing.</p>
-              </div>
-            </div>
-          </div>
-          <div class=" col-lg-4 col-md-6 col-sm-6">
-            <div class="single-services text-center mb-30">
-              <div class="services-cap">
-                <a href="https://genobank.io/"><img src="assets/img/logo/Genobank.png" alt=""></a>
-                <h5>    </h5>
-                <p>Contribute to Personalized Medicine and all the new Genomic discoveries with confidence.</p>
-              </div>
-            </div>
-          </div>
-          <div class=" col-lg-4 col-md-6 col-sm-6">
-            <div class="single-services text-center mb-30">
-              <div class="services-ion">
-                <span class="flaticon-pay"></span>
-              </div>
-              <div class="services-cap">
-                <a href="team.html"><img src="assets/img/logo/logo.png" alt=""></a>
-                <h5>Indie partners</h5>
-                <p>Mexican scientists and entrepreneurs from America, Europe and Asia</p>
-              </div>
-            </div>
-          </div>
-          <div class=" col-lg-4 col-md-6 col-sm-6">
-            <div class="single-services text-center mb-30">
-              <div class="services-cap">
-                <a href="http://www.nutriye.com/"><img src="assets/img/logo/NutriYe.png" alt=""></a>
-                <h5> </h5>
-                <p>Line of functional drinks that help people feel better and balance their bodies.</p>
-              </div>
-            </div>
-          </div>
-          <!-- in case we need it
-          <div class=" col-lg-4 col-md-6 col-sm-6">
-            <div class="single-services text-center mb-30">
-              <div class="services-cap">
-                <a href="https://genobank.io/"><img src="assets/img/logo/logo.png" alt=""></a>
-                <h5>Someone else</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-              </div>
-            </div>
-          </div>
-          -->
-        </div>
       </div>
     </div>
     <!-- Our Services End -->
@@ -296,7 +260,8 @@
     <div class="whole-wrap">
       <div class="container box_1170">
         <div class="section-top-border">
-          <h3 class="mb-30">ViroDet seeks to develop, validate and implement:</h3>
+          <h3 class="mb-30" lang="en">ViroDet seeks to develop, validate and implement:</h3>
+          <h3 class="mb-30" lang="es">ViroDet busca desarrollar, validar e implementar:</h3>
           <div class="row">
             <div class="col-md-3">
               <img src="assets/img/proper/lab12.jpg" alt="" class="img-fluid">
@@ -304,9 +269,11 @@
             <div class="col-md-9 mt-sm-20">
               <ol class="ordered-list">
                 <p>
-                  <li><span>A low-cost and accessible diagnostic module that integrates a real-time PCR thermal cycler.</span></li>
-                  <li><span>Two diagnostic test kits for the detection of SARS-CoV-2 with molecular techniques
-                    of RT-qPCR and RT-LAMP based on open-source technologies and endemic materials from Mexico.</span></li></p>
+                  <li lang="en"><span>A low-cost and accessible diagnostic module that integrates a real-time PCR thermal cycler.</span></li>
+                  <li lang="en"><span>Diagnostic test kits for the detection of SARS-CoV-2 with molecular techniques of RT-qPCR and RT-LAMP based on open-source technologies and endemic materials from Mexico.</span></li>
+                  <li lang="es"><span>Un módulo de diagnóstico accesible y de bajo costo que integre un termociclador PCR tiempo real.</span></li>
+                  <li lang="es"><span>Kits de diagnóstico molecular mediante tecnología <em>open-source</em> y materiales endémicos de México para la detección de SARS-CoV-2 basados en las técnicas de RT-qPCR y LAMP.</span></li>
+                  </p>
                   </ol>
                 </li>
               </ol>
@@ -314,19 +281,23 @@
           </div>
         </div>
         <div class="section-top-border">
-          <h3 class="mb-30">How RT-qPCR testing works</h3>
+          <h3 class="mb-30" lang="en">How RT-qPCR testing works</h3>
+          <h3 class="mb-30" lang="es">Funcionamiento de las pruebas RT-qPCR</h3>
           <div class="row">
             <div class="col-md-4">
-              <h4>Sample Collection</h4>
+              <h4 lang="en">Sample Collection</h4>
+              <h4 lang="es">Toma de muestra</h4>
               <svg id="phillipanim">
               </svg>
             </div>
             <div class="col-md-4">
-              <h4>Sample Preparation</h4>
+              <h4 lang="en">Sample Preparation</h4>
+              <h4 lang="es">Tratamiento de muestra</h4>
               <svg id="preparationanim"></svg>
             </div>
             <div class="col-md-4">
-              <h4>PCR & Results</h4>
+              <h4 lang="en">PCR & Results</h4>
+              <h4 lang="es">PCR y resultados</h4>
               <svg id="pcranim"></svg>
             </div>
           </div>
@@ -335,64 +306,83 @@
           <div class="row">
             <div class="col-md-4">
               <div class="single-defination">
-                <h4 class="mb-20">Step 01</h4>
-                <p>
-                Nasopharyngeal cotton swab swab is inserted into nostril to absorb secretions. Specimen is stored at 2-8°C for up to 72 hours. RNA human samples are obtained from certified authorities.
+                <h4 class="mb-20" lang="en">Step 1</h4>
+                <h4 class="mb-20" lang="es">Paso 1</h4>
+                <p lang="en">
+                Nasopharyngeal cotton swab swab is inserted into nostril to absorb secretions. Specimen is stored at 2-8°C for up to 72 hours. These human samples are obtained by certified authorities.
+                </p>
+                <p lang="es">
+                Hisopo de algodón se inserta a las fosas nasales para absorber secresiones. La muestra se almacena entre 2 y 8°C hasta 72 horas. Este muestreo se lleva acabo por autoridades certificadas.
                 </p>
               </div>
             </div>
             <div class="col-md-4">
               <div class="single-defination">
-                <h4 class="mb-20">Step 02</h4>
-                <p>
-                  Samples are added to our reaction kits which contain all the necessary enzymes and probes for detecting SARS-CoV-2.
-                  Reaction mixes are added to the device. Our device is capable of running 16 samples in parallel.
+                <h4 class="mb-20" lang="en">Step 2</h4>
+                <h4 class="mb-20" lang="es">Paso 2</h4>
+                <p lang="en">
+                  Samples are added to our reaction kits which contain all the necessary enzymes and probes for detecting SARS-CoV-2. The resulting solution tube is placed inside our thermocycler, which is capable of running 16 samples simultaneously.
+                </p>
+                <p lang="es">
+                  Las muestras se tratan con nuestros kits que contienen sustancias químicas para detectar la presencia del virus SARS-CoV-2. La solución resultante se pone dentro de nuestro termociclador, el cual es capaz de correr 16 muestras simultáneamente.
                 </p>
               </div>
             </div>
             <div class="col-md-4">
               <div class="single-defination">
-                <h4 class="mb-20">Step 03</h4>
-                <p>
-                  Depending on the desired test, users can obtain a result between 1-2 hours.
-                  Results can be seen on the screen of the device and can be stored for later analysis.
+                <h4 class="mb-20" lang="en">Step 3</h4>
+                <h4 class="mb-20" lang="es">Paso 3</h4>
+                <p lang="en">
+                  Depending on the desired test, users can obtain a result between 1-2 hours. Results can be seen on the screen of the device and can be stored for later analysis.
+                </p>
+                <p lang="es">
+                  Dependiendo de la prueba deseada, los usuarios pueden obtener un resultado dentro de una a dos horas. Estos se podrán ver en la misma pantalla del termociclador y se podrán guardar para análisis posterior.
                 </p>
               </div>
             </div>
           </div>
         </div>
         <div class="section-top-border text-right">
-          <h3 class="mb-30">Expected Results</h3>
+          <h3 class="mb-30" lang="en">Expected Results</h3>
+          <h3 class="mb-30" lang="es">Resultados esperados</h3>
           <div class="row">
             <div class="col-md-9">
               <p class="text-right">
                 <ol class="ordered-list-roman">
                   <p>
-                    <li><span>ViroDet leads this effort with a focus on low-middle income countries.</span></li>
-                    <li><span>Monitoring to better develop and implement appropriate strategies.</span></li>
-                    <li><span>Allows us to take preventive measures that reduce the virus spreading.</span></li>
-                    <li><span>Consequently, this will avoid saturation of public and private hospitals. </span></li>
+                    <li lang="en"><span>ViroDet leads this effort with a focus on low-middle income countries.</span></li>
+                    <li lang="en"><span>Monitoring to better develop and implement appropriate strategies.</span></li>
+                    <li lang="en"><span>Allows us to take preventive measures that reduce the virus spreading.</span></li>
+                    <li lang="en"><span>Consequently, this will avoid saturation of public and private hospitals.</span></li>
+
+                    <li lang="es"><span>ViroDet redirige sus esfuerzos hacia países de medios y bajos ingresos.</span></li>
+                    <li lang="es"><span>Monitorear para tener un mejor desarrollo e implementación con estrategias apropiadas.</span></li>
+                    <li lang="es"><span>Permite tomar medidas preventivas para reducir la diseminación del virus.</span></li>
+                    <li lang="es"><span>Por consiguiente, evitará la saturación de los hospitales públicos y privados.</span></li>
                   </ol>
                 </li>
               </ol>
             </div>
             <div class="col-md-3">
-              <img src="assets/img/proper/lab10.jpg" alt="" class="img-fluid">
+              <img src="assets/img/proper/lab10.png" alt="" class="img-fluid">
             </div>
           </div>
         </div>
         <div class="section-top-border">
-          <h3 class="mb-30">A community effort on COVID-19 diagnostics for Mexico and Latin America</h3>
+          <h3 class="mb-30" lang="en">A community effort on COVID-19 diagnostics for Mexico and Latin America</h3>
+          <h3 class="mb-30" lang="es">Un esfuerzo común para el diagnóstico de COVID-19 en México y Latinoamérica</h3>
           <div class="row">
             <div class="col-lg-12">
-              <blockquote class="generic-blockquote">
-                ViroDet's goals are to develop open-source diagnostic tools approved by health regulatory institutions
-                so that it can be adopted and used in clinics in vulnerable communities. Likewise, we seek that our technology
-                can be easily replicated in other Latin American countries.
+              <blockquote class="generic-blockquote" lang="en">
+                ViroDet's goals are to develop open-source diagnostic tools approved by health regulatory institutions so that it can be adopted and used in clinics in vulnerable communities. Likewise, we seek that our technology can be easily replicated in other Latin American countries.
+              </blockquote>
+              <blockquote class="generic-blockquote" lang="es">
+                ViroDet tiene como objetivo desarrollar herramientas de diagnóstico validadas por instituciones regulatorias pertinentes para su uso en clínicas de comunidades vulnerables. De igual manera queremos que nuestra tecnología sea fácil de replicar en otros países latinoamericanos.
               </blockquote>
             </div>
           </div>
         </div>
+        <!--
         <div class="section-top-border">
           <h3 class="mb-30">Letality index.</h3>
           <div class="progress-table-wrap">
@@ -493,52 +483,122 @@
               </div>
             </div>
           </div>
-        </div>
+        </div>-->
       </div>
     </div>
 
 
+    <div class="our-services pt-50 pb-150">
+      <div class="container">
+        <h3 lang="en">Organizations involved</h3>
+        <h3 lang="es">Organizaciones involucradas</h3>
+        <br />
+        <div class="row">
+          <div class=" col-lg-4 col-md-6 col-sm-6">
+            <div class="single-services text-center mb-30">
+              <div class="services-cap">
+                <a href="https://www.scintia.com/"><img src="assets/img/logo/Scintia.png" alt=""></a>
+                <p lang="en">Educational platforms through cutting-edge tech for SynBio.</p>
+                <p lang="es">Plataformas educativas basadas en tecnología de punta en biología sintética.</p>
+              </div>
+            </div>
+          </div>
+          <div class=" col-lg-4 col-md-6 col-sm-6">
+            <div class="single-services text-center mb-30">
+              <div class="services-cap">
+                <a href="https://www.linkedin.com/company/nitrocel-technologies/"><img src="assets/img/logo/Nitrocel.png" alt=""></a>
+                <p lang="en">Science-based startup developing technologies for cell therapy manufacturing.</p>
+                <p lang="es"><em>Start-up</em> de base científica para el desarrollo de tecnologías de manufactura en terapias celulares.</p>
+              </div>
+            </div>
+          </div>
+          <div class=" col-lg-4 col-md-6 col-sm-6">
+            <div class="single-services text-center mb-30">
+              <div class="services-cap">
+                <a href="https://genobank.io/"><img src="assets/img/logo/Genobank.png" alt=""></a>
+                <p lang="en">Contribute to Personalized Medicine and all the new Genomic discoveries with confidence.</p>
+                <p lang="es">Contribuye a la medicina personalizada y a las nuevas tecnologías genómicas dando confianza a sus clientes.</p>
+              </div>
+            </div>
+          </div>
+          <div class=" col-lg-4 col-md-6 col-sm-6">
+            <div class="single-services text-center mb-30">
+              <div class="services-ion">
+                <a href="team.html"><span class="flaticon-pay"></span></a>
+              </div>
+              <div class="services-cap">
+                <h5 lang="en">Indie partners</h5>
+                <h5 lang="es">Socios independientes</h5>
+                <p lang="en">Mexican scientists and entrepreneurs from America, Europe, and Asia.</p>
+                <p lang="es">Emprendedores y científicos mexicanos de América, Europa y Asia.</p>
+              </div>
+            </div>
+          </div>
+          <div class=" col-lg-4 col-md-6 col-sm-6">
+            <div class="single-services text-center mb-30">
+              <div class="services-cap">
+                <a href="http://www.nutriye.com/"><img src="assets/img/logo/NutriYe.png" alt=""></a>
+                <p lang="en">Line of functional drinks that help people feel better and balance their bodies.</p>
+                <p lang="es">Línea de bebidas funcionales para hacer sentir mejor a las personas y balancear sus cuerpos.</p>
+              </div>
+            </div>
+          </div>
+          <!-- in case we need it
+          <div class=" col-lg-4 col-md-6 col-sm-6">
+            <div class="single-services text-center mb-30">
+              <div class="services-cap">
+                <a href="https://genobank.io/"><img src="assets/img/logo/logo.png" alt=""></a>
+                <h5>Someone else</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+              </div>
+            </div>
+          </div>
+          -->
+        </div>
+      </div>
+    </div>
 
     <div class="section-top-border">
-      <h3>Image Gallery</h3>
+      <h3 lang="en">Image Gallery</h3>
+      <h3 lang="es">Galería de imágenes</h3>
       <div class="row gallery-item">
         <div class="col-md-4">
-          <a href="assets/img/proper/lab1.jpg" class="img-pop-up">
-            <div class="single-gallery-image" style="background: url(assets/img/proper/lab1.jpg);"></div>
+          <a href="assets/img/elements/g1.jpg" class="img-pop-up">
+            <div class="single-gallery-image" style="background: url(assets/img/proper/lab1.png);"></div>
           </a>
         </div>
         <div class="col-md-4">
-          <a href="assets/img/proper/lab8.png" class="img-pop-up">
+          <a href="assets/img/elements/g2.jpg" class="img-pop-up">
             <div class="single-gallery-image" style="background: url(assets/img/proper/lab8.png);"></div>
           </a>
         </div>
         <div class="col-md-4">
-          <a href="assets/img/proper/lab3.jpg" class="img-pop-up">
+          <a href="assets/img/elements/g3.jpg" class="img-pop-up">
             <div class="single-gallery-image" style="background: url(assets/img/proper/lab3.jpg);"></div>
           </a>
         </div>
         <div class="col-md-6">
-          <a href="assets/img/proper/lab4.jpg" class="img-pop-up">
+          <a href="assets/img/elements/g4.jpg" class="img-pop-up">
             <div class="single-gallery-image" style="background: url(assets/img/proper/lab4.jpg);"></div>
           </a>
         </div>
         <div class="col-md-6">
-          <a href="assets/img/proper/lab9.png" class="img-pop-up">
+          <a href="assets/img/elements/g5.jpg" class="img-pop-up">
             <div class="single-gallery-image" style="background: url(assets/img/proper/lab9.png);"></div>
           </a>
         </div>
         <div class="col-md-4">
-          <a href="assets/img/proper/lab11.jpg" class="img-pop-up">
-            <div class="single-gallery-image" style="background: url(assets/img/proper/lab11.jpg);"></div>
+          <a href="assets/img/elements/g6.jpg" class="img-pop-up">
+            <div class="single-gallery-image" style="background: url(assets/img/proper/lab11.png);"></div>
           </a>
         </div>
         <div class="col-md-4">
-          <a href="assets/img/proper/lab2.png" class="img-pop-up">
+          <a href="assets/img/elements/g7.jpg" class="img-pop-up">
             <div class="single-gallery-image" style="background: url(assets/img/proper/lab2.png);"></div>
           </a>
         </div>
         <div class="col-md-4">
-          <a href="assets/img/proper/lab7.jpg" class="img-pop-up">
+          <a href="assets/img/elements/g8.jpg" class="img-pop-up">
             <div class="single-gallery-image" style="background: url(assets/img/proper/lab7.jpg);"></div>
           </a>
         </div>
@@ -726,6 +786,9 @@
 
 
   <script type="text/javascript">
+  // TODO: ENGLISH SPANISH MENU
+  $('head').append('<link rel="stylesheet" href="assets/css/eng.css">')
+
   $(window).on("pageshow resize scroll", function() {
     if($(window).scrollTop() < $('#titlevid').height()) {
       $("#titlevid")[0].play()
